@@ -1,0 +1,12 @@
+{
+  "type": "Map Tool",
+  "title": "Buffer Map Tool",
+  "description": "A map tool that creates buffers from a clicked point",
+  "usePortalServices": true,
+  "runtime": {
+    "iconPath": "icon.png",
+    "path": "buffer.html",
+    "viewType": "toolbar"
+  },
+  "credits": "By Esri (http://www.esri.com)"
+}

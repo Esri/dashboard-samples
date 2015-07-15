@@ -1,0 +1,17 @@
+{
+  "type": "Widget",
+  "title": "List Widget",
+  "description": "List Widget sample",
+  "thumbnailPath": "icon.png",
+  "useDataFromView": true,
+  "runtime": {
+    "path": "listWidget.html"
+  },
+  "configuration": {
+    "path": "listWidgetConfig.html",
+    "requireDataSource": true,
+    "supportFeatureActions": true,
+    "showDescriptionInput": true
+  },
+  "credits": "By Esri (http://www.esri.com)"
+}

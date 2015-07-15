@@ -1,0 +1,12 @@
+{
+  "type": "Feature Action",
+  "title": "Open a new browser tab",
+  "description": "Sample Feature Action",
+  "thumbnailPath": "icon.png",
+  "useDataFromView": true,
+  "runtime": {
+    "path": "openBrowserTabFeatureAction.html",
+    "iconPath": "icon.png"
+  },
+  "credits": "By Esri (http://www.esri.com)"
+}

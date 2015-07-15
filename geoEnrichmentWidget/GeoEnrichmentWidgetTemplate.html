@@ -1,0 +1,17 @@
+<div>
+  <div class="tool table hide" data-dojo-attach-point="initialMsg">
+    <div class="cell middle">
+      <p> Show the age pyramid for a given location on the map.</p>
+      <button data-dojo-attach-event="onclick: getLocation" class="pick-location-tool">Select Location</button>
+    </div>
+  </div>
+  <div class="message table hide" data-dojo-attach-point="useMapMsg">
+    <div class="cell middle">
+      <p> Use the map to define the location to analyze.</p>
+    </div>
+  </div>
+  <div class="table waiting" data-dojo-attach-point="waitingMsg">
+    <div class="cell middle loading-big"></div>
+  </div>
+  <div data-dojo-attach-point="infographicsDijit" class="infographics hide"></div>
+</div>

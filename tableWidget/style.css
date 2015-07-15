@@ -1,0 +1,30 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font: 13px sans-serif;
+  font-family: "Segoe UI";
+}
+
+label{
+  font-weight: bold;
+}
+
+.table {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-row.full {
+  height: 100%;
+}

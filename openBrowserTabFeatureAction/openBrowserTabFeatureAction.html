@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script>
+  var dojoConfig = {
+    async: true,
+    parseOnLoad: true,
+    paths: {
+      "extension": location.pathname.replace(/\/[^/]+$/, '')
+    }
+  };
+</script>
+<script src="//js.arcgis.com/3.14/"></script>
+<script>
+  require(["esri/opsdashboard/featureActionProxy"], function (featureActionProxy) {
+    featureActionProxy.on("execute", function () {
+      window.open("http://www.esri.com", "_blank").focus();
+    });
+  });
+</script>
+</body>
+</html>

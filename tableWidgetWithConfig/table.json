@@ -1,0 +1,16 @@
+{
+  "type": "Widget",
+  "title": "Table Widget (Config)",
+  "description": "A widget that shows the attributes of the features from a data source",
+  "thumbnailPath": "table.png",
+  "useDataFromView": true,
+  "runtime": {
+    "path": "table.html"
+  },
+  "configuration": {
+    "path": "tableConfig.html",
+    "requireDataSource": true
+  },
+  "credits": "Esri"
+}
+

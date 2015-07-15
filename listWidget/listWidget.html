@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="//js.arcgis.com/3.14/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="//js.arcgis.com/3.14/esri/css/esri.css">
+  <style>
+    html, body, .list-container {
+      padding: 0px;
+      margin: 0px;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font: 11px sans-serif;
+    }
+
+    .dgrid.list {
+      margin: 0;
+      padding: 0;
+      height: inherit;
+      width: inherit;
+    }
+
+    .dgrid-row {
+      font-weight: bold;
+      margin: 0;
+      padding: 10px 5px;
+      border-bottom: 1px solid #ccc;
+      color: #666;
+    }
+
+    .dgrid-row:hover {
+      color: #000;
+      background-color: #ddd;
+    }
+
+    .dgrid-selected {
+      background-color: lightblue;
+    }
+
+  </style>
+</head>
+<body class="claro">
+
+<div data-dojo-type="extension/ListWidget"></div>
+
+<script>
+  var dojoConfig = {
+    async: true,
+    parseOnLoad: true,
+    paths: {
+      "extension": location.pathname.replace(/\/[^/]+$/, '')
+    }
+  };
+</script>
+<script src="//js.arcgis.com/3.14/"></script>
+
+</body>
+</html>

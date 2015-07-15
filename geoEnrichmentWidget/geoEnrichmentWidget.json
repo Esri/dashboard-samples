@@ -1,0 +1,14 @@
+{
+  "type": "Widget",
+  "title": "GeoEnrichment Widget",
+  "description": "GeoEnrichment Widget sample",
+  "thumbnailPath": "icon.png",
+  "usePortalServices": true,
+  "runtime": {
+    "path": "geoEnrichmentWidget.html"
+  },
+  "configuration": {
+    "requireMapWidget": true
+  },
+  "credits": "By Esri (http://www.esri.com)"
+}

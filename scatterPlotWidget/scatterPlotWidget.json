@@ -1,0 +1,17 @@
+{
+  "type": "Widget",
+  "title": "Scatter Plot Widget",
+  "description": "Scatter Plot Widget sample",
+  "thumbnailPath": "icon.png",
+  "useDataFromView": true,
+  "runtime": {
+    "path": "scatterPlotWidget.html"
+  },
+  "configuration": {
+    "path": "scatterPlotWidgetConfig.html",
+    "requireDataSource": true,
+    "supportFeatureActions": true,
+    "showDescriptionInput": true
+  },
+  "credits": "By Esri (http://www.esri.com)"
+}
