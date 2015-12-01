@@ -1,0 +1,22 @@
+<div class="table" >
+  <div class="cell buttonContainer" data-dojo-attach-point="drawLineMsg">
+    <button class="button" data-dojo-attach-event="onClick:drawLine">Draw Line</button>
+  </div>
+
+  <div class="cell hide" data-dojo-attach-point="waitingMsg">
+    <label id="widgetLabel" class="left">Click on the map to start sketching a line which will be used to calculate the
+      elevation profile, then double click to finish the sketch.</label>
+    <button class="right button" data-dojo-attach-event="onClick:cancelDrawLine">Start Again</button>
+  </div>
+
+  <div class="cell middle loading-big hide" data-dojo-attach-point="calculatingMsg"></div>
+
+  <div class="cell hide graphContainer" data-dojo-attach-point="showGraphMsg">
+    <div>
+      <button class="button" data-dojo-attach-event="onClick:selectedUnitChanged">Toggle Unit</button>
+      <button class="right button" data-dojo-attach-event="onClick:clearResult">Done</button>
+    </div>
+
+    <svg id="profileGraph"></svg>
+  </div>
+</div>

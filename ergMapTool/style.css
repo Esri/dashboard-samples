@@ -1,0 +1,131 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: arial, helvetica, san-serif;
+}
+input,
+select {
+  padding: 5px;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+select,
+input {
+  margin-left: 10px;
+}
+label {
+  margin-top: 7px;
+}
+.table.dark label,
+.table.dark p {
+  color: #f8f8f8;
+}
+p {
+  margin: 0px 10px 0 0;
+}
+.table {
+  display: table;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+}
+.row {
+  width: 95.5%;
+  padding: 15px 10px;
+  float: left;
+}
+.header {
+  height: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+}
+.header .right {
+  margin: -2px 5px 0 0;
+}
+.calculate img {
+  margin-right: 10px;
+}
+.calculate select {
+  width: 150px;
+}
+.material select {
+  width: 365px;
+}
+.spill .time {
+  margin-left: 25px;
+}
+.spill select {
+  width: 123px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+.row.wind button {
+  display: none;
+}
+.row.buttons button {
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #007ac2;
+  color: #007ac2;
+  transition: all 0.3s ease;
+  position: absolute;
+  bottom: 20px;
+  cursor: pointer;
+}
+.row.buttons button:hover {
+  background-color: #007ac2;
+  color: #fff;
+}
+.row.buttons button.left {
+  left: 30px;
+}
+.row.buttons button.right {
+  right: 30px;
+}
+.row.buttons button.center {
+  left: 170px;
+}
+.row.buttons .disabled {
+  border-color: #aaa;
+  color: #aaa;
+  background-color: transparent;
+  cursor: default;
+}
+.row.buttons .disabled:hover {
+  border-color: #aaa;
+  color: #aaa;
+  background-color: transparent;
+}
+.row.check {
+  position: absolute;
+  bottom: 65px;
+}
+.row.check checkbox {
+  padding-left: 5px !important;
+}
+.windInfo,
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.loading-small {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 32px;
+  left: 80px;
+}
+.activate {
+  background-color: #c4e1ff;
+}

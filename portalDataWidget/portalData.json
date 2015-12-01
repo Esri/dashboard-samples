@@ -1,0 +1,13 @@
+{
+  "type": "Widget",
+  "title": "Portal Data Widget",
+  "description": "Portal data sample",
+  "thumbnailPath": "portal.png",
+  "useDataFromView": true,
+  "usePortalServices": true,
+  "runtime": {
+    "path": "portalData.html"
+  },
+  "credits": "Esri"
+}
+

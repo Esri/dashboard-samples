@@ -2,9 +2,12 @@
 <html>
 <head lang="en">
   <meta charset="UTF-8">
-  <title></title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
+
+<div data-dojo-type="extension/PortalDataWidget"></div>
+
 <script>
   var dojoConfig = {
     async: true,
@@ -17,15 +20,11 @@
 <script>
   require([
     "dojo/parser",
-    "esri/opsdashboard/featureActionProxy",
     "dojo/domReady!"
-  ], function(parser, featureActionProxy){
+  ], function (parser) {
     parser.parse();
-  
-    featureActionProxy.on("execute", function () {
-      window.open("http://www.esri.com", "_blank").focus();
-    });
   });
 </script>
 </body>
 </html>
+

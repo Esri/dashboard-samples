@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    var dojoConfig = {
+    async: true,
+    paths: {
+      "extension": location.pathname.replace(/\/[^/]+$/, '')
+    }
+  };
+  </script>
+  <script src="//js.arcgis.com/3.15/"></script>
+  <script>
+    require([
+      "esri/opsdashboard/featureActionProxy",
+      "dojo/has",
+      "dojo/dom-construct",
+      "dojo/dom-class",
+      "dojo/_base/window",
+      "esri/config",
+      "dojo/sniff"
+    ], function (featureActionProxy, has, domConstruct, domClass, win, esriConfig) {
+      featureActionProxy.on("execute", function (eventProperties) {
+        //get the list of features
+        var features = eventProperties.features.features;
+  
+        //if no features were returned - do nothing
+        var featureCount = features.length;
+        if (featureCount === 0) {
+          return;
+        }
+  
+        var csvData = "";
+        var attributes;
+        var attribute;
+  
+        // build the header
+        attributes = features[0].attributes;
+        for (attribute in attributes) {
+          csvData += (csvData.length === 0 ? "" : ",") + '"' + attribute + '"';
+        }
+        csvData += "\r\n";
+  
+        //build the columns
+        var line = "";
+        for (var i = 0; i < features.length; i++) {
+          line = "";
+          var feature = features[i];
+          attributes = feature.attributes;
+          for (attribute in attributes) {
+            line += (line.length === 0 ? "" : ",") + '"' + attributes[attribute] + '"';
+          }
+          csvData += line + "\r\n";
+        }
+        //fileName - for download
+        var filename = eventProperties.dataSourceProxy.name + ".csv";
+  
+        // native - open the data in excel file straight
+        if (this.isNative) {
+          csvData = "sep=,\r\n" + csvData;
+          window.open("data:application/vnd.ms-excel;charset=utf-8," + encodeURIComponent(csvData), filename);
+          return;
+        }
+        //web - the file will be downloaded to the default download location
+        // Handle chrome
+        if (has("chrome")) {
+          var link = domConstruct.create("a", {
+            href: 'data:attachment/csv;charset=utf-8,' + encodeURIComponent(csvData),
+            download: filename
+          }, window.document.body);
+  
+          var clickEvent = window.document.createEvent("MouseEvents");
+          clickEvent.initEvent("click", true /* bubble */, true /* cancelable */);
+          link.dispatchEvent(clickEvent);
+          return;
+        }
+  
+        //handle Firefox
+        if (has("ff")) {
+          var link = domConstruct.create("a", {
+            href: 'data:attachment/csv;charset=utf-8,' + encodeURIComponent(csvData),
+            download: filename
+          }, window.parent.document.body);
+  
+          var clickEvent = window.document.createEvent("MouseEvents");
+          clickEvent.initEvent("click", true /* bubble */, true /* cancelable */);
+          link.dispatchEvent(clickEvent);
+          return;
+        }
+  
+        //handle Microsoft Internet Explorer
+        var blob = new Blob([csvData], {"type": "text/csv;charset=utf8"});
+        window.navigator.msSaveOrOpenBlob(blob, filename);
+        return;
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -2,16 +2,20 @@
 
 Using the ArcGIS API for JavaScript, you can develop widget, map tools, and feature action extensions for Operations Dashboard running on Windows and in a browser.
 
-![Operations Dashboard with extensions](operations-dashboard-extensibility.png)
+![Operations Dashboard with extensions](https://github.com/Esri/dashboard-samples/blob/master/operations-dashboard-extensibility.png)
 
 ## Features
+* Buffer map tool - A map tool that creates buffers from a clicked point.
+* Elevation Profile widget - A widget that creates profile graphs by drawing lines interactively on the map.
+* ERG Chemical map tool - A map tool that generates impacts of a chemical spill at a given location.
+* Export to CSV feature action - A feature action that exports the feature results into a CSV table.
 * GeoEnrichment widget - A widget that displays an age pyramid from a clicked point.
+* Line Chart widget - A line chart widget that is powered by data from your map or external data source.
 * List widget - A custom list widget.
+* Open browser tab feature action - A feature action that opens a web page on a new browser tab.
 * Scatter plot widget - A widget that shows a scatter plot based on the selected fields of a data source.
 * Table widget - A widget that shows the attributes of the features from a data source on a grid.
 * Table widget with config - A widget that shows the attributes of the features based on the selected fields from a data source.
-* Buffer map tool - A map tool that creates buffers from a clicked point.
-* Open browser tab feature action - A feature action that opens a web page on a new browser tab.
 
 ## Requirements
 * [Operations Dashboard for ArcGIS](http://www.arcgis.com/opsdashboard/OperationsDashboard.application)
@@ -70,7 +74,6 @@ Using the ArcGIS API for JavaScript, you can develop widget, map tools, and feat
     var extensionLocation = location.pathname.replace(/\/[^/]+$/, '');
     var dojoConfig = {
       async: true, // Anything is async from now on
-      parseOnLoad: true, // Set this if you are using dijit and your dijit supports parsing on load.
       locale: location.search.match(/locale=([\w\-]+)/) ? RegExp.$1 : "en-us", // The locale of the Operations Dashboard
       host application is passed by url query params
       paths: {
@@ -78,8 +81,15 @@ Using the ArcGIS API for JavaScript, you can develop widget, map tools, and feat
       }
     };
   </script>
-  <script src="//js.arcgis.com/3.14"></script>
-  
+  <script src="//js.arcgis.com/3.15"></script>
+  <script>
+    require([
+      "dojo/parser",
+      "dojo/domReady!"
+    ], function(parser){
+      parser.parse();
+    });
+  </script>
   <!-- Add you additional javascript scripts here-->
   
   </body>

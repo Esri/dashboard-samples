@@ -1,3 +1,20 @@
+/**
+ * COPYRIGHT 2015 ESRI
+ *
+ * TRADE SECRETS: ESRI PROPRIETARY AND CONFIDENTIAL
+ * Unpublished material - all rights reserved under the
+ * Copyright Laws of the United States and applicable international
+ * laws, treaties, and conventions.
+
+ * For additional information, contact:
+ * Environmental Systems Research Institute, Inc.
+ * Attn: Contracts and Legal Services Department
+ * 380 New York Street
+ * Redlands, California, 92373
+ * USA
+
+ * email: contracts@esri.com
+ */
 define([
   "dojo/_base/declare",
   "dojo/_base/lang",
@@ -52,25 +69,24 @@ define([
 
       // Execute the query. A request will be sent to the server to query for the features.
       // The results are in the featureSet
-      dataSourceProxy.executeQuery(this.query).then(lang.hitch(this, function (featureSet) {
+      dataSourceProxy.executeQuery(this.query).then(function (featureSet) {
 
         // Show the name of the data source and the number of features returned from the query
         this.updateDataSourceInfoLabel(dataSourceProxy.name, featureSet);
 
         // Show the features in the table
         this.updateAttributeTable(featureSet, dataSourceProxy);
-      }));
+      }.bind(this));
     },
 
     updateDataSourceInfoLabel: function (dataSourceName, featureSet) {
 
       // Compose the correct string to display
       var dataSourceInfo = dataSourceName;
-      var featureCount = featureSet.features.length;
-      if (featureCount === 0)
+      if(!featureSet.features || featureSet.features.length == 0)
         dataSourceInfo += " has no feature";
       else
-        dataSourceInfo += " has " + featureCount + " features";
+        dataSourceInfo += " has " + featureSet.features.length + " features";
 
       this.infoLabel.innerHTML = dataSourceInfo;
     },
@@ -78,9 +94,19 @@ define([
     updateAttributeTable: function (featureSet, dataSourceProxy) {
       // For each feature put them in the store and overwrite any existing
       // Potential improvement: Remove from the store the features that were not part of this update.
-      featureSet.features.forEach(lang.hitch(this, function (feature) {
-        this.store.put(feature.attributes, {overwrite: true, id: feature.attributes[dataSourceProxy.objectIdFieldName]});
-      }));
+      if (this.store.data.length > 0) {
+        this.store.query().forEach(function (item) {
+          this.store.remove(item.id);
+        }.bind(this));
+      }
+      if(featureSet.features) {
+        featureSet.features.forEach(function (feature) {
+          this.store.put(feature.attributes, {
+            overwrite: true,
+            id: feature.attributes[dataSourceProxy.objectIdFieldName]
+          });
+        }.bind(this));
+      }
     }
   });
 });

@@ -17,6 +17,7 @@
  */
 define([
   "dojo/_base/declare",
+  'dojo/on',
   "dojo/_base/lang",
   "dijit/_WidgetBase",
   "dijit/_TemplatedMixin",
@@ -28,7 +29,7 @@ define([
   "esri/opsdashboard/WidgetProxy",
   "esri/tasks/query",
   "dojo/text!./ListWidgetTemplate.html"
-], function (declare, lang, _WidgetBase, _TemplatedMixin, List, Selection, Memory, Observable, domConstruct, WidgetProxy, Query, templateString) {
+], function (declare, on, lang, _WidgetBase, _TemplatedMixin, List, Selection, Memory, Observable, domConstruct, WidgetProxy, Query, templateString) {
 
   return declare("ListWidget", [_WidgetBase, _TemplatedMixin, WidgetProxy], {
     templateString: templateString,
@@ -38,6 +39,10 @@ define([
 
       // Create the store we will use to display the features
       this.store = new Observable(new Memory());
+      //temporary local storage to hold the featureActionFeatures
+      this.featureActionFeaturesStore = new Observable(new Memory());
+      //cache the featureActionFeatures
+      this.featureActionFeaturesCache = new Observable(new Memory());
 
       // Create the list and override the row rendering
       var dataSourceProxy = this.dataSourceProxies[0];
@@ -54,35 +59,73 @@ define([
         }
       }, this.listDiv);
 
-      this.list.on("dgrid-select", lang.hitch(this, function (event) {
-        event.rows.forEach(function (row) {
-          this.featureActionFeatures.addFeature(row.data);
-        }, this);
-      }));
-
-      this.list.on("dgrid-deselect", lang.hitch(this, function (event) {
-        event.rows.forEach(function (row) {
-          this.featureActionFeatures.removeFeature(row.data);
-        }, this);
-      }));
-
       this.list.startup();
+
+      //add the selected feature to the list of featureActionFeatures
+      this.list.on("dgrid-select", function (event) {
+        event.rows.forEach(function (row) {
+          if (this.featureActionFeatures) {
+            this.featureActionFeatures.addFeature(row.data);
+            this.featureActionFeaturesStore.put(row.data);
+          }
+        }, this);
+      }.bind(this));
+
+      //remove the feature from the list of featureActionFeatures
+      this.list.on("dgrid-deselect", function (event) {
+        event.rows.forEach(function (row) {
+          if (this.featureActionFeatures) {
+            this.featureActionFeatures.removeFeature(row.data);
+            this.featureActionFeaturesStore.remove(row.data.id);
+          }
+        }, this);
+      }.bind(this));
 
       // Create the query object
       // Query the features and update the chart
       this.query = new Query();
       this.query.outFields = [dataSourceProxy.objectIdFieldName, dataSourceConfig.displayField];
       this.query.returnGeometry = false;
-
     },
 
     dataSourceExpired: function (dataSourceProxy, dataSourceConfig) {
       // Request data and process them
-      dataSourceProxy.executeQuery(this.query).then(lang.hitch(this, function (featureSet) {
-        featureSet.features.forEach(lang.hitch(this, function (feature) {
-          this.store.put(feature, {overwrite: true, id: feature.attributes[dataSourceProxy.objectIdFieldName]});
-        }));
-      }));
+      //cache the featureActionFeatures before updating the store
+      if (this.featureActionFeatures) {
+        if (this.featureActionFeaturesStore.data.length > 0) {
+          this.featureActionFeaturesCache.query().forEach(function (item) {
+            this.featureActionFeaturesCache.remove(item.id);
+          }.bind(this));
+
+          this.featureActionFeaturesStore.query().forEach(function (_feature) {
+            this.featureActionFeaturesCache.put(_feature);
+          }, this);
+        }
+      }
+
+      if (this.store.data.length > 0) {
+        this.store.query().forEach(function (item) {
+          this.store.remove(item.id);
+        }.bind(this));
+      }
+
+      dataSourceProxy.executeQuery(this.query).then(function (featureSet) {
+        if (featureSet.features) {
+          //update the data store
+          featureSet.features.forEach(function (feature) {
+            this.store.put(feature, {overwrite: true, id: feature.attributes[dataSourceProxy.objectIdFieldName]});
+          }.bind(this));
+
+          //update the featureActionFeatures from the cache after the data store is updated
+          if (this.featureActionFeatures && this.featureActionFeaturesCache.data.length > 0) {
+            this.featureActionFeatures.clear();
+            this.featureActionFeaturesCache.query().forEach(function (_feature) {
+              this.featureActionFeatures.addFeature(_feature);
+              this.list.select(this.list.row(parseInt(_feature.id)));
+            }, this);
+          }
+        }
+      }.bind(this));
     }
   });
 });

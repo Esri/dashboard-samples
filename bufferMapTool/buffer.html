@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
+
 <body>
 
-<div data-dojo-type="extension/BufferMapTool"></div>
+  <div data-dojo-type="extension/BufferMapTool"></div>
 
-<script>
-  var dojoConfig = {
-    async: true,
-    parseOnLoad: true,
-    paths: {
-      "extension": location.pathname.replace(/\/[^/]+$/, '')
-    }
-  };
-</script>
-<script src="//js.arcgis.com/3.14/"></script>
+  <script>
+    var dojoConfig = {
+      async: true,
+      paths: {
+        "extension": location.pathname.replace(/\/[^/]+$/, '')
+      }
+    };
+  </script>
+  <script src="//js.arcgis.com/3.15/"></script>
+  <script>
+    require([
+      "dojo/parser",
+      "dojo/domReady!"
+    ], function(parser){
+      parser.parse();
+    });
+  </script>
 
 </body>
+
 </html>

@@ -1,0 +1,13 @@
+{
+  "type": "Feature Action",
+  "title": "Export CSV",
+  "description": "Exports selected items to CSV",
+  "thumbnailPath": "download.png",
+  "useDataFromView": true,
+  "runtime": {
+    "path": "exportToCSVFeatureAction.html",
+    "iconPath": "download.png",
+    "supportMultiFeatures": true
+  },
+  "credits": "By Esri (http://www.esri.com)"
+}

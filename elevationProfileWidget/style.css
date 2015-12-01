@@ -1,0 +1,147 @@
+/* Generic style for the widget */
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  font-size: 14px;
+  font-family: Arial;
+  color: #323232;
+  background-color: #fff;
+}
+
+.table {
+  display: table;
+  width: 98%;
+  height: 98%;
+}
+
+.cell {
+  display: table-cell;
+  width: 100%;
+}
+
+.middle {
+  vertical-align: middle;
+}
+
+.top {
+  vertical-align: top;
+}
+
+.left{
+  float: left;
+}
+
+.right{
+  float: right;
+}
+
+.hide {
+  display: none;
+}
+
+.loading-big {
+  background: url("./loading-big.gif") no-repeat center;
+  height: 180px;
+  width: 180px;
+}
+
+#widgetLabel{
+  width: 75%;
+  padding-top: 5px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+#profileGraph{
+  width: 100%;
+  height: 100%;
+}
+
+.title{
+  font-family: Arial;
+}
+
+.axis-text{
+  font-size: 12px;
+  font-family: Arial;
+}
+
+.axis path,
+.axis line{
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+#profileLine{
+  stroke: black;
+  stroke-width: 5px;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+#markerLine {
+  stroke: black;
+  stroke-dasharray: 5,3,3,3;
+  opacity: 1;
+  stroke-width: 2;
+}
+
+.focus circle {
+  fill: none;
+  stroke: black;
+}
+
+.focus text{
+  stroke: black;
+  font-size: 14px;
+  font-family: Arial;
+}
+
+.area{
+  stroke-width: 0;
+}
+
+.above {
+  fill: #e1f1fb;
+}
+
+.below{
+  fill: #d2b38f;
+  stroke: #999;
+  stroke-width: 1px;
+}
+
+.buttonContainer {
+  text-align: center;
+}
+
+.buttonContainer button {
+  margin: 30px 0 0 0;
+}
+
+.button {
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #007ac2;
+  border: 1px solid #166090;
+  font-weight: 800;
+  font-size: 16px;
+  color: #fff;
+}
+
+.button:hover {
+  background-color: #3b8fc4;
+  border-color: #3b8fc4;
+  cursor: pointer;
+}
+
+.graphContainer .button{
+  padding: 5px 15px;
+  margin: 0;
+}
