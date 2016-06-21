@@ -81,7 +81,7 @@ Using the ArcGIS API for JavaScript, you can develop widget, map tools, and feat
       }
     };
   </script>
-  <script src="//js.arcgis.com/3.16"></script>
+  <script src="//js.arcgis.com/3.17"></script>
   <script>
     require([
       "dojo/parser",
