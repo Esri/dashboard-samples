@@ -1,0 +1,192 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ffffff;
+  font: 13px sans-serif;
+  font-family: "Segoe UI";
+}
+
+/*
+*
+* styles of the widget container
+*
+*/
+#resultDiv{
+  height: 100%;
+  width: 100%;
+  margin: 5px;
+  position: relative;
+}
+
+#resultDiv > div{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*
+*
+* styles of the loading page
+*
+*/
+.loading-big {
+  height: 65px;
+  width: 65px;
+  background: url("img/loading-big.gif") no-repeat center;
+}
+
+/*
+*
+* styles of the results page
+*
+*/
+#resultsPage {
+  position: relative;
+}
+
+#resultsPage > div {
+  width: 100%;
+  position: absolute;
+}
+
+/*
+* styles of the location UI
+*/
+#locationDiv{
+  top: 0;
+  height: 60px;
+  border-bottom: 1px solid #cccccc;
+  overflow: hidden;
+}
+
+#locationDiv h2 {
+  margin: 0 auto;
+  font: 18px "Segoe UI";
+}
+
+#locationDiv p{
+  margin: 3px 5px;
+  color: #585858;
+}
+
+/*
+* styles of the weather details page
+*/
+#weatherDetailsDiv {
+  top: 75px;
+  bottom: 55px;
+  overflow: hidden;
+}
+
+#weatherDetailsContainer {
+  margin: 10px;
+  position: relative;
+}
+
+#weatherDetailsContainer > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* styles of the weather image UI */
+#weatherFigureDiv{
+  width: 35%;
+  vertical-align: middle;
+}
+
+#weatherFigure img{
+  height: 55px;
+  width: 55px;
+}
+
+#weatherFigure figcaption{
+  padding: 0;
+  margin:0;
+  font-size: 14px;
+}
+
+/* styles of the weather details table */
+#infoTable tr:first-of-type{
+  font-weight: bold;
+}
+
+#infoTable tr td:nth-child(even){
+  padding: 2px 5px;
+  font-weight: bold;
+}
+
+/*
+* styles of the map page
+*/
+#mapPage {
+  text-align: center;
+}
+
+#mapPage img{
+  vertical-align: middle;
+  width: 80%;
+  padding-bottom: 80%;
+}
+
+/*
+* styles of the navigation UI
+*/
+#navigationDiv{
+  bottom: 7px;
+  border-top: 1px solid #cccccc;
+}
+
+.button{
+  border: 1px solid #cccccc;
+  margin: -1px 2px;
+}
+
+.active{
+  border-top: 1px solid #ffffff;
+}
+
+
+/*
+*
+* styles of the warning page
+*
+*/
+#warningPage{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin: auto 50px auto auto;
+}
+
+
+/*
+*
+* generic styles
+*
+*/
+.table {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.row {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+}
+
+.middle {
+  vertical-align: middle;
+}
+
+.hide{
+  display: none;
+}
