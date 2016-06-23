@@ -1,0 +1,81 @@
+<div>
+  <!-- Show the loading page while waiting for result -->
+  <div data-dojo-attach-point="loadingPage" id="loadingPage" class="show table">
+    <div class="loading-big cell"></div>
+  </div>
+
+  <!-- UI for showing the results from the weather information request, as well as the controls for
+  switching between detail weather information and satellite image -->
+  <div data-dojo-attach-point="resultsPage" id="resultsPage" class="hide table">
+    <!-- header section for showing the location information -->
+    <div id="locationDiv" class="row">
+      <h2 data-dojo-attach-point="fullLocationName"></h2>
+      <p data-dojo-attach-point="observationTime"></p>
+    </div>
+
+    <!-- Details page for showing weather details and satellite image -->
+    <div id="weatherDetailsDiv" class="row">
+      <div id="weatherDetailsContainer">
+        <!-- Weather details -->
+        <div id="detailsPage" data-dojo-attach-point="detailsPage" class="table">
+          <div id="weatherFigureDiv" class="cell">
+            <figure id="weatherFigure">
+              <img data-dojo-attach-point="weatherImg"/>
+              <figcaption data-dojo-attach-point="weatherImgCaption"></figcaption>
+            </figure>
+          </div>
+          <div id="infoDiv" class="cell">
+            <table id="infoTable">
+              <tr>
+                <td data-dojo-attach-point="weather" colspan="2">Clear</td>
+              </tr>
+              <tr>
+                <td>UV index</td>
+                <td data-dojo-attach-point="uv"></td>
+              </tr>
+              <tr>
+                <td>Wind</td>
+                <td data-dojo-attach-point="windInfo"></td>
+              </tr>
+              <tr>
+                <td>Humidity</td>
+                <td data-dojo-attach-point="relativeHumidity"></td>
+              </tr>
+              <tr>
+                <td>Precip (24hrs)</td>
+                <td data-dojo-attach-point="precipitationToday"></td>
+              </tr>
+              <tr>
+                <td>Visibility</td>
+                <td data-dojo-attach-point="visibility"></td>
+              </tr>
+              <tr>
+                <td>Dew Point</td>
+                <td data-dojo-attach-point="dewPoint"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <!-- Satellite image -->
+        <div id="mapPage" data-dojo-attach-point="mapPage" class="hide table">
+          <img data-dojo-attach-point="visibleSatelliteImage"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls for switching between details page and map page-->
+    <div id="navigationDiv" data-dojo-attach-point="navigationDiv" class="row">
+      <img src="img/detailsPageBtn.png" id="detailsPageBtn" class="button active"
+           data-dojo-attach-point="detailsPageBtn"
+           data-dojo-attach-event="onclick:showDetailsPage"/>
+      <img src="img/mapPageBtn.png" id="mapPageBtn" class="button"
+           data-dojo-attach-point="mapPageBtn"
+           data-dojo-attach-event="onclick:showMapPage"/>
+    </div>
+  </div>
+
+  <!-- Show the warning page if developer key is missing or other error situations occur -->
+  <div data-dojo-attach-point="warningPage" id="warningPage" class="hide">
+    <h3 data-dojo-attach-point="warningMsg"></h3>
+  </div>
+</div>

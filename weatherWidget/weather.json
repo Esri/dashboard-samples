@@ -1,0 +1,15 @@
+{
+  "type": "Widget",
+  "title": "Weather Widget",
+  "description": "This widget shows the weather observations for the map center",
+  "thumbnailPath": "img/weather.png",
+  "useDataFromView": false,
+  "runtime": {
+    "path": "weather.html"
+  },
+  "configuration": {
+    "requireMapWidget": true,
+    "requireDataSource": false
+  },
+  "credits": ""
+}

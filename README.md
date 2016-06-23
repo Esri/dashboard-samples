@@ -7,7 +7,6 @@ Using the ArcGIS API for JavaScript, you can develop widget, map tools, and feat
 ## Features
 * Buffer map tool - A map tool that creates buffers from a clicked point.
 * Elevation Profile widget - A widget that creates profile graphs by drawing lines interactively on the map.
-* ERG Chemical map tool - A map tool that generates impacts of a chemical spill at a given location.
 * Export to CSV feature action - A feature action that exports the feature results into a CSV table.
 * GeoEnrichment widget - A widget that displays an age pyramid from a clicked point.
 * Line Chart widget - A line chart widget that is powered by data from your map or external data source.

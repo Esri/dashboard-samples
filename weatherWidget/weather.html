@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+  <div id="resultDiv" data-dojo-type="extension/weather"></div>
+
+  <script>
+    var dojoConfig = {
+      async: true,
+      paths: {
+        "extension": location.pathname.replace(/\/[^/]+$/, '')
+      }
+    };
+  </script>
+  <script src="//js.arcgis.com/3.17/"></script>
+  <script>
+    require([
+      "dojo/parser",
+      "dojo/domReady!"
+    ], function(parser){
+      parser.parse();
+    });
+  </script>
+
+</body>
+
+</html>
