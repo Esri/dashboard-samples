@@ -64,7 +64,7 @@ define([
       }.bind(this), function (error) {
         this.showWarningPage("Error getting map extent");
         console.log("Error: ", error.message);
-      });
+      }.bind(this));
     },
 
     showWeatherInformation: function (extent) {
@@ -76,7 +76,7 @@ define([
         webMercatorUtils.webMercatorToGeographic(mapCenter) : mapCenter;
 
       // Request for weather information
-      var weatherServiceUrl = "http://" + this.wundergroundDomain + "/api/" + this.developerKey + "/conditions/satellite/webcams/q/" +
+      var weatherServiceUrl = location.protocol + "//" + this.wundergroundDomain + "/api/" + this.developerKey + "/conditions/satellite/webcams/q/" +
         geoMapCenter.getLatitude() + "," + geoMapCenter.getLongitude() + ".json";
 
       esriRequest({

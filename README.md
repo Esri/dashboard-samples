@@ -1,4 +1,4 @@
-# dashboard-samples
+# dashboard-samples
 
 Using the ArcGIS API for JavaScript, you can develop widget, map tools, and feature action extensions for Operations Dashboard running on Windows and in a browser.
 
@@ -15,6 +15,7 @@ Using the ArcGIS API for JavaScript, you can develop widget, map tools, and feat
 * Scatter plot widget - A widget that shows a scatter plot based on the selected fields of a data source.
 * Table widget - A widget that shows the attributes of the features from a data source on a grid.
 * Table widget with config - A widget that shows the attributes of the features based on the selected fields from a data source.
+* Weather widget - This widget shows the weather observations for the map center, and refreshes automatically when map extent changes.
 
 ## Requirements
 * [Operations Dashboard for ArcGIS](http://www.arcgis.com/opsdashboard/OperationsDashboard.application)
@@ -80,7 +81,7 @@ Using the ArcGIS API for JavaScript, you can develop widget, map tools, and feat
       }
     };
   </script>
-  <script src="//js.arcgis.com/3.17"></script>
+  <script src="//js.arcgis.com/3.18"></script>
   <script>
     require([
       "dojo/parser",
