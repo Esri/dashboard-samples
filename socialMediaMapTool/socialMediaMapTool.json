@@ -1,0 +1,14 @@
+{
+  "type": "Map Tool",
+  "title": "Flickr Feeds Map Tool",
+  "description": "Get Flickr photos nearby the selected map location",
+  "runtime": {
+    "iconPath": "imgs/white-small-chiclet.png",
+    "path": "socialMediaMapTool.html",
+    "viewType": "toolbar"
+  },
+  "configuration": {
+    "path": "socialMediaMapToolConfig.html"
+  },
+  "credits": "By Esri (http://www.esri.com)"
+}

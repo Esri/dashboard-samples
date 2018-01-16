@@ -1,0 +1,47 @@
+<div>
+  <h5>Specify a search text, radius and date range for photo search</h5>
+
+  <div id="configForm" class="table">
+
+    <div class="table-row">
+      <label class="table-cell">Search text</label>
+      <input type="text" data-dojo-attach-point="searchTextField" class="table-cell textInput"
+             data-dojo-type="dijit/form/TextBox"
+             data-dojo-attach-event="onKeyUp:searchTextFieldChanged"/>
+    </div>
+
+    <div class="table-row">
+      <label class="table-cell">Search radius ( &lt; 20mi/32km) </label>
+      <div class="table-cell ">
+        <input type="text" class="numericInput"
+               data-dojo-attach-point="radiusField"
+               data-dojo-type="dijit/form/NumberTextBox"
+               data-dojo-attach-event="onKeyUp:radiusInputChanged"/>
+        <select data-dojo-attach-point="radiusUnitField" data-dojo-type="dijit/form/Select"
+                data-dojo-attach-event="onChange:radiusInputChanged">
+          <option value="km">km</option>
+          <option value="mi">miles</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="table-row">
+      <label class="table-cell">Taken since the past</label>
+      <div class="table-cell">
+        <input type="text" class="numericInput"
+               data-dojo-attach-point="dateField"
+               data-dojo-type="dijit/form/NumberTextBox"
+               data-dojo-attach-event="onKeyUp:dateFieldChanged"/>
+        <select data-dojo-attach-point="dateUnitField" data-dojo-type="dijit/form/Select"
+                data-dojo-attach-event="onChange:dateFieldChanged">
+          <option value="day">days</option>
+          <option value="week">weeks</option>
+          <option value="month">months</option>
+          <option value="year">years</option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+
+</div>

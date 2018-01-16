@@ -16,6 +16,7 @@ Using the ArcGIS API for JavaScript, you can develop widget, map tools, and feat
 * Table widget - A widget that shows the attributes of the features from a data source on a grid.
 * Table widget with config - A widget that shows the attributes of the features based on the selected fields from a data source.
 * Weather widget - This widget shows the weather observations for the map center, and refreshes automatically when map extent changes.
+* Social Media map tool - A map tool that gets images from social media for the map center.
 
 ## Requirements
 * [Operations Dashboard for ArcGIS](http://www.arcgis.com/opsdashboard/OperationsDashboard.application)

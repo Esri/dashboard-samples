@@ -1,0 +1,39 @@
+<div>
+  <!-- UIs to show when user activates the map tool -->
+  <div data-dojo-attach-point="searchPage" class="table">
+    <div class="table-cell">
+      <label>Click on the map to search for Flickr photos (search text: </label>
+      <label data-dojo-attach-point="searchTextLabel"></label>
+      <label>)</label>
+    </div>
+    <div class="table-cell"><button data-dojo-attach-event="onClick:deactivateMapTool">Done</button></div>
+  </div>
+
+  <!-- The search result UIs -->
+  <div data-dojo-attach-point="resultsPage" class="table hide">
+
+    <!-- UIs for navigating between photos -->
+    <div class="table-row" id="paginationDiv">
+      <img src="imgs/chevronLeft16.png" data-dojo-attach-event="onClick:showPreviousPhoto">
+      <label data-dojo-attach-point="currentPhotoId"></label>
+      <label class="pagination-counter">of</label>
+      <label data-dojo-attach-point="photoCount"></label>
+      <img src="imgs/chevronRight16.png" data-dojo-attach-event="onClick:showNextPhoto">
+    </div>
+
+    <!-- UIs for showing an individual photo as well as its title and description -->
+    <div class="table-row">
+      <h4 data-dojo-attach-point="photoTitle"></h4>
+      <figure>
+        <img data-dojo-attach-point="photoUrl">
+        <figcaption data-dojo-attach-point="photoDescription"></figcaption>
+      </figure>
+    </div>
+
+    <!-- UIs for deactivating the map tool  -->
+    <div class="table-row footer right">
+      <button data-dojo-attach-event="onClick:deactivateMapTool">Done</button>
+    </div>
+
+  </div>
+</div>
