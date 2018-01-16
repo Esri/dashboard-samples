@@ -1,0 +1,116 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: Arial;
+  overflow: hidden;
+}
+
+.table {
+  overflow: hidden;
+  display: table;
+  width: 95%;
+}
+
+.table-row{
+  display: table-row;
+}
+
+.table-cell{
+  display: table-cell;
+}
+
+/*
+* styles of the configuration dialog
+*/
+.textInput{
+  width: 250px;
+}
+
+.numericInput{
+  width: 50px;
+}
+
+#configForm .table-row > .table-cell:first-child{
+  margin-right: 10px;
+}
+
+#configForm .table-cell > *{
+  margin: 5px 0;
+}
+
+select{
+  width: 80px;
+}
+
+/*
+* styles of the photo navigation controls
+*/
+
+#paginationDiv {
+  margin-right: 10px;
+  text-align: right;
+}
+
+#paginationDiv * {
+  vertical-align: middle;
+}
+
+#paginationDiv img {
+  padding: 10px 6px;
+  margin: auto 2px;
+}
+
+#paginationDiv img:hover {
+  background: #e2f1fb;
+  cursor: pointer;
+}
+
+.pagination-counter {
+  margin: 0 5px;
+}
+
+/*
+* styles of the photos
+*/
+figure {
+  margin: 5px;
+  width: 260px;
+  text-align: justify;
+}
+
+figure img {
+  width: 240px;
+  height: 157px;
+}
+
+/*
+* generic styles
+*/
+
+/*h4, h5 {*/
+  /*margin: 0 0 2px 0;*/
+/*}*/
+
+h4, h5 {
+  margin: 5px 0;
+}
+
+label,
+figcaption {
+  font-size: 12px;
+}
+
+.footer{
+  position: absolute;
+  bottom: 5px;
+}
+
+.right {
+  position: absolute;
+  text-align: right;
+  right: 5px;
+}
+
+.hide{
+  display: none;
+}
