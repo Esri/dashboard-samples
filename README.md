@@ -1,4 +1,9 @@
-# dashboard-samples
+## Deprecation note
+The samples in this repository showcase extending [operation views](http://doc.arcgis.com/en/operations-dashboard/operation-views/) created using the Windows version Operations Dashboard for ArcGIS. This version of the application and this extensibility framework have been moved to [Mature Support](https://support.esri.com/en/Products/Apps/web-apps/operations-dashboard-for-arcgis/10-3-4) status. To learn more about the latest web-based version, see [Operations Dashboard for ArcGIS](https://doc.arcgis.com/en/operations-dashboard/).
+
+<hr/>
+
+## Dashboard-samples
 
 Using the ArcGIS API for JavaScript, you can develop widget, map tools, and feature action extensions for Operations Dashboard running on Windows and in a browser.
 
